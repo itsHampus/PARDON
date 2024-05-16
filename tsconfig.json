@@ -12,6 +12,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "typeRoots": ["custom_typings/"],
     "plugins": [
       {
         "name": "next"
