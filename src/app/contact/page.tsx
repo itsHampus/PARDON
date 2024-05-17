@@ -13,7 +13,7 @@ export default function Contact() {
         fill
         className="z-[-5] object-cover brightness-[0.75] contrast-150"
       />
-      <Navbar />
+      <Navbar foo="contact" />
     </div>
   );
 }
