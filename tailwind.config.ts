@@ -16,7 +16,8 @@ const config: Config = {
       },
       backgroundImage: {
         dashboard: "url('/images/FELICIA_SCANNING(22)_wash.jpg')",
-        about: "url('/images/FELICIA_SCANNING(17)_wash.jpg')"
+        about: "url('/images/FELICIA_SCANNING(17)_wash.jpg')",
+        contact: "url('/images/FELICIA_SCANNING(6).jpg')"
       }
     }
   },
