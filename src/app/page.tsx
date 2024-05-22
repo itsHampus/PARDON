@@ -7,7 +7,7 @@ import { Rub2 } from "@/components/textComponents/Rub2";
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-black bg-cover bg-center">
+    <div className="min-h-screen bg-dashboard bg-cover bg-center">
       <Navbar />
 
       {/* <div className="flex flex-row items-center justify-center p-2">
@@ -25,9 +25,7 @@ export default function Page() {
         </div>
       </div> */}
       <div className="flex flex-col items-center justify-center">
-        <Rub2 className="mb-4">
-          Förhandslyssna på nästkommande singel - Pussy Galore
-        </Rub2>
+        {/* <Rub2 className="mb-4">Preview - Pussy Galore</Rub2> */}
         <MusicPlayer />
       </div>
       <Concerts />

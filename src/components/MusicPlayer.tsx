@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import Pussy_Galore from "../../public/music/Pussy_Galore_mix_10.mp3";
+import { BText4 } from "./textComponents/BText4";
 
 const MusicPlayer: React.FC = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -10,7 +11,7 @@ const MusicPlayer: React.FC = () => {
   const audioSourceRef = useRef<MediaElementAudioSourceNode | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [gain, setGain] = useState(1);
+  const [gain, setGain] = useState(0.5);
   const [duration, setDuration] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -87,7 +88,7 @@ const MusicPlayer: React.FC = () => {
             analyserNodeRef.current!.getByteFrequencyData(dataArray);
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "rgb(0, 0, 0, 0)";
+            ctx.fillStyle = "rgb(0, 50, 50, 1)";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             const barWidth = 3;
@@ -132,39 +133,53 @@ const MusicPlayer: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative mb-[25px] box-border flex w-full max-w-[180px] items-start space-x-4 rounded-md border-2 border-white bg-[#7A7773] p-4 sm:max-w-[234px] md:max-w-[304px] lg:max-w-[400px]">
-      <audio ref={audioRef} src={Pussy_Galore} onTimeUpdate={updateProgress} />
-
-      <button
-        onClick={togglePlayPause}
-        className={`${isPlaying ? "bg-pauseBtn" : "bg-playBtn"} h-[20px] w-[20px]  bg-contain bg-center bg-no-repeat `}
-      />
-
-      <div className="relative flex h-[20px] flex-1 items-center justify-end">
-        <canvas
-          ref={canvasRef}
-          className="absolute left-0 top-0 h-5 w-full"
-        ></canvas>
-        <input
-          type="range"
-          min="0"
-          max="100"
-          step="0.1"
-          value={progress}
-          onChange={seekAudio}
-          className="absolute bottom-0 left-0 z-[2] h-full w-full flex-1 appearance-none  overflow-hidden bg-none opacity-[0.5] [&::-moz-range-thumb]:h-[20px] [&::-moz-range-thumb]:w-0 [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:shadow-[-300px_0_0_300px_#ffffff38]  [&::-webkit-slider-thumb]:h-[20px] [&::-webkit-slider-thumb]:w-0 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:shadow-[-300px_0_0_300px_#ffffff38]"
-        />
+    <div className="relative mb-[25px] flex w-full max-w-[180px] flex-col items-start rounded-md border-[10px] border-double border-[#dcd3e0] bg-[#B2B0B3] p-4 shadow-[inset_1px_1px_0px_#000000] outline outline-2 outline-white sm:max-w-[234px] md:max-w-[304px] lg:max-w-[400px]">
+      <div className="flex w-full justify-start p-[0px_0px_10px_4px] lg:pl-4">
+        <div className="w-fit border-[1px] border-black border-b-white border-r-white p-[2px] font-mono text-[10px]">
+          <BText4 className="cursor-default text-[#f4f4f4]">
+            Preview - Pussy Galore
+          </BText4>
+        </div>
       </div>
-      <div className="">
-        <input
-          type="range"
-          min="0"
-          max="1"
-          step="0.01"
-          value={gain}
-          onChange={(e) => setGain(parseFloat(e.target.value))}
-          className="h-2 w-[40px] appearance-none rounded-lg sm:w-[50px] md:w-[65px] lg:w-[85px] [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:w-[10px] [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:rounded-lg [&::-moz-range-thumb]:bg-[#f60a0a] [&::-moz-range-thumb]:outline [&::-moz-range-thumb]:outline-1 [&::-moz-range-thumb]:outline-black [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-[10px] [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-lg [&::-webkit-slider-thumb]:bg-[#f60a0a] [&::-webkit-slider-thumb]:outline [&::-webkit-slider-thumb]:outline-1 [&::-webkit-slider-thumb]:outline-black"
+
+      <div className="flex w-full flex-row space-x-1 lg:space-x-4">
+        <audio
+          ref={audioRef}
+          src={Pussy_Galore}
+          onTimeUpdate={updateProgress}
         />
+
+        <button
+          onClick={togglePlayPause}
+          className={`${isPlaying ? "bg-pauseBtn" : "bg-playBtn"} h-[20px] w-[20px]  bg-contain bg-center bg-no-repeat `}
+        />
+
+        <div className="relative flex h-[20px] flex-1 items-center justify-end">
+          <canvas
+            ref={canvasRef}
+            className="absolute left-0 top-0 h-5 w-full border-[1px] border-black shadow-[inset_2.5px_2.5px_0px_#000000] blur-[.1px] "
+          ></canvas>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            step="0.1"
+            value={progress}
+            onChange={seekAudio}
+            className="absolute bottom-0 left-0 h-full w-full flex-1 cursor-pointer appearance-none overflow-hidden  bg-[#ffffff] opacity-10 [&::-moz-range-thumb]:h-[20px] [&::-moz-range-thumb]:w-0 [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:shadow-[-300px_0_0_300px_#000000]  [&::-webkit-slider-thumb]:h-[20px] [&::-webkit-slider-thumb]:w-0 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:shadow-[-300px_0_0_300px_#000000]"
+          />
+        </div>
+        <div className="">
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value={gain}
+            onChange={(e) => setGain(parseFloat(e.target.value))}
+            className="h-3 w-[40px] cursor-pointer appearance-none rounded-lg shadow-[inset_.5px_.5px_.2px_#3f3f3f]  outline outline-[1px] outline-[#000000] sm:w-[50px] md:w-[65px] lg:w-[85px] [&::-webkit-slider-thumb]:h-[10px] [&::-webkit-slider-thumb]:w-[10px] [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#f60a0a] [&::-webkit-slider-thumb]:shadow-[inset_0px_-1.1px_1px_#ffffff] [&::-webkit-slider-thumb]:outline [&::-webkit-slider-thumb]:outline-[.5px] [&::-webkit-slider-thumb]:outline-black "
+          />
+        </div>
       </div>
     </div>
   );

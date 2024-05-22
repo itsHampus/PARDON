@@ -19,13 +19,6 @@ export const Members = () => {
   return (
     <div className="flex w-full flex-col items-center font-custom text-white">
       <div className="flex w-full flex-col justify-start p-4 sm:p-8 lg:p-10">
-        <Rub3
-          onClick={() => {
-            setMemberImage(undefined);
-          }}
-        >
-          Medlemmar
-        </Rub3>
         <ul className="flex cursor-pointer flex-row justify-between">
           {membersArr.map((name) => (
             <li key={name} onClick={() => setMemberImage(name)}>

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Suspense } from "react";
 import Loader from "./loading";
+import { BText4 } from "@/components/textComponents/BText4";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,22 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className={`${inter.className} h-full`}>
-        <Suspense fallback={<Loader />}>{children}</Suspense>
+        <Suspense fallback={<Loader />}>
+          {children}
+          <footer className="flex w-full items-center justify-center space-x-8 bg-black">
+            <div className="flex flex-row">
+              <BText4>Created by </BText4>
+              <a
+                href="https://github.com/itsHampus"
+                target="_blank"
+                className="pl-2"
+              >
+                <BText4 className=" hover:text-rose-700">@itsHampus </BText4>
+              </a>
+            </div>
+            <BText4>&copy; 2024 PARDON. All rights reserved.</BText4>
+          </footer>
+        </Suspense>
       </body>
     </html>
   );
