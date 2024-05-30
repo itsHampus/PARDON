@@ -15,7 +15,7 @@ export default function Contact() {
             <BText3 className="leading-tight">Kontakta:</BText3>
             <a
               href="mailto:pardon.official@gmail.com"
-              className="font-mono text-[11px] leading-tight text-white hover:text-red-600 sm:text-[14px] md:text-[19px] lg:text-[24px]"
+              className="font-mono text-[11px] leading-tight text-white underline hover:text-red-600 sm:text-[14px] md:text-[19px] lg:text-[24px]"
             >
               pardon.official@gmail.com
             </a>

@@ -21,10 +21,17 @@ export const Members = () => {
       <div className="flex w-full flex-col justify-start p-4 sm:p-8 lg:p-10">
         <ul className="flex cursor-pointer flex-row justify-between">
           {membersArr.map((name) => (
-            <li key={name} onClick={() => setMemberImage(name)}>
+            <li
+              key={name}
+              onClick={() =>
+                setMemberImage(name === memberImage ? undefined : name)
+              }
+            >
               <Rub2
                 className={
-                  memberImage === name ? "underline underline-offset-4" : ""
+                  memberImage === name
+                    ? "underline underline-offset-4"
+                    : "hover:underline hover:underline-offset-4"
                 }
               >
                 {name}

@@ -12,7 +12,7 @@ export const SocialsContainer = () => {
       <a
         target="_blank"
         href="https://www.tiktok.com/"
-        className="m-2 inline-block h-5 w-5 cursor-pointer md:m-4 md:h-[30px] md:w-[30px] lg:m-6 lg:h-[50px] lg:w-[50px] "
+        className="m-2 inline-block h-5 w-5 cursor-pointer md:m-4 md:h-[30px] md:w-[30px] lg:m-6 lg:h-[50px] lg:w-[50px]"
       >
         <Tiktok />
       </a>

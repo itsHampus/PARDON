@@ -24,7 +24,7 @@ export default function RootLayout({
           {children}
           <footer className="flex w-full items-center justify-center space-x-8 bg-black">
             <div className="flex flex-row">
-              <BText4>Created by </BText4>
+              <BText4>Created by</BText4>
               <a
                 href="https://github.com/itsHampus"
                 target="_blank"
