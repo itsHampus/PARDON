@@ -1,8 +1,10 @@
+import { ReactNode } from "react";
+
 export const BText3 = ({
   children,
   className
 }: {
-  children: string;
+  children?: ReactNode;
   className?: HTMLHeadingElement["className"];
 }) => {
   return (

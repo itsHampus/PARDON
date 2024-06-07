@@ -1,10 +1,12 @@
+import { ReactNode } from "react";
+
 export const Rub3 = ({
   children,
   className,
   onClick
 }: {
   onClick?: () => void;
-  children: string;
+  children: ReactNode;
   className?: HTMLHeadingElement["className"];
 }) => {
   return (

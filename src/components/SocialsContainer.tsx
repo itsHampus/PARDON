@@ -6,12 +6,12 @@ import { Facebook } from "../../public/icons/Facebook";
 import { Instagram } from "../../public/icons/Instagram";
 import { Spotify } from "../../public/icons/Spotify";
 export const SocialsContainer = () => {
-  //TODO: Add links to tiktok, youtube and spotify
+  //TODO: Add links to youtube and spotify
   return (
     <div className="ml-auto mr-auto w-auto text-center ">
       <a
         target="_blank"
-        href="https://www.tiktok.com/"
+        href="https://www.tiktok.com/@pardon.official"
         className="m-2 inline-block h-5 w-5 cursor-pointer md:m-4 md:h-[30px] md:w-[30px] lg:m-6 lg:h-[50px] lg:w-[50px]"
       >
         <Tiktok />

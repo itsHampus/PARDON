@@ -24,16 +24,21 @@ export default function RootLayout({
           {children}
           <footer className="flex w-full items-center justify-center space-x-8 bg-black">
             <div className="flex flex-row">
-              <BText4>Created by</BText4>
-              <a
-                href="https://github.com/itsHampus"
-                target="_blank"
-                className="pl-2"
-              >
-                <BText4 className=" hover:text-rose-700">@itsHampus </BText4>
-              </a>
+              <BText4>
+                Created by
+                <a
+                  href="https://github.com/itsHampus"
+                  target="_blank"
+                  className="pl-2 hover:text-red-700"
+                >
+                  @itsHampus
+                </a>
+              </BText4>
             </div>
             <BText4>&copy; 2024 PARDON. All rights reserved.</BText4>
+            <BText4 className="hover:text-red-700">
+              <a href="/licenses">Licenses</a>
+            </BText4>
           </footer>
         </Suspense>
       </body>
